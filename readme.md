@@ -1,6 +1,7 @@
 # python parser
 
-A simple parser for python made using lex yacc. 
+A simple parser for python made using lex yacc / [GNU's flex bison](https://www.gnu.org/software/bison/manual/).
+
 It currently supports only selected python expressions as stated below.
 
 ## package requirements
@@ -14,14 +15,29 @@ It currently supports only selected python expressions as stated below.
 - `make clean` to remove old stuff lying around
 - `make` to build : this will generate the usual files
 - `make run` to execute
-- 
+
 ## How to debug
 
 - go to source folder `cd src`
 - `make clean` to remove old stuff lying around
-- `make debug` to build with debugging flags
-- this will generate a lot of extra files. feel free to look through.
+- `make debug` to build with debugging flags. This will generate a lot of extra files. Browse them.
 - `make run` to execute
+
+## Challenges
+
+- Program works when input in only a single line.
+  - It can be made into consecutive multiple line input using  `BEGIN <stmt-list> END`.
+  - But then, when a syntax error is encountered,
+    - i will have to handle the error,
+    - empty the current stack 
+    - then recover from the error
+    - and then keep the program going until statements are over
+
+- One program run parses only one statement. 
+  - It can be made for infinite statements.
+  - That is, continous INPUT_OUTPUT stream until ctrl+c on terminal can be achieved.
+  - This can be done by removing `return 0;` from the success case.
+  - In this case as well, the current stack needs to be emptied.
 
 ## Assumptions
 
@@ -95,3 +111,24 @@ It currently supports only selected python expressions as stated below.
 - This assignment covers only simple cases.
 - Only to be used as a reference point.
 - This code was made in 2015. Use at your own discretion.
+
+## Reference links
+
+- Lex Yacc Introduction 
+  - [http://epaperpress.com/lexandyacc/intro.html](http://epaperpress.com/lexandyacc/intro.html)
+  - [http://dinosaur.compilertools.net/lex/](http://dinosaur.compilertools.net/lex/)
+  - [http://dinosaur.compilertools.net/yacc/](http://dinosaur.compilertools.net/yacc/)
+
+- Lex yacc primer
+  - [http://tldp.org/HOWTO/Lex-YACC-HOWTO-7.html](http://tldp.org/HOWTO/Lex-YACC-HOWTO-7.html)
+
+- Bison manual references
+  - [http://www.gnu.org/software/bison/manual/html_node/Understanding.html](http://www.gnu.org/software/bison/manual/html_node/Understanding.html)
+  - [http://www.gnu.org/software/bison/manual/bison.html#Action-Features](http://www.gnu.org/software/bison/manual/bison.html#Action-Features)
+  - [http://www.gnu.org/software/bison/manual/bison.html#Algorithm](http://www.gnu.org/software/bison/manual/bison.html#Algorithm)
+  - [http://www.gnu.org/software/bison/manual/html_node/Error-Recovery.html](http://www.gnu.org/software/bison/manual/html_node/Error-Recovery.html)
+
+- Python expressions 
+  - [http://www.tutorialspoint.com/python/python_loop_control.htm](http://www.tutorialspoint.com/python/python_loop_control.htm)
+  - [http://www.tutorialspoint.com/python/python_basic_syntax.htm](http://www.tutorialspoint.com/python/python_basic_syntax.htm)
+  - [https://docs.python.org/2/reference/expressions.html](https://docs.python.org/2/reference/expressions.html)
