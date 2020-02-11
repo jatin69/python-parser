@@ -1,27 +1,31 @@
-# python parser
+# Python parser
 
 A simple parser for python made using lex yacc / [GNU's flex bison](https://www.gnu.org/software/bison/manual/).
 
 It currently supports only selected python expressions as stated below.
 
-## package requirements
+## Screenshots
 
-- gnu's lex yacc `sudo apt-get install bison flex`
-- make utility `sudo apt-get install build-essential`
+![1](./screenshots/1.jpg)
+![2](./screenshots/2.jpg)
+![3](./screenshots/3.jpg)
 
 ## How to make
 
+- The following packages are required
+  + gnu's lex yacc `sudo apt-get install bison flex`
+  + make utility `sudo apt-get install build-essential`
 - go to source folder `cd src`
 - `make clean` to remove old stuff lying around
 - `make` to build : this will generate the usual files
-- `make run` to execute
+- `make run` to execute or simply run `./parser`
 
 ## How to debug
 
 - go to source folder `cd src`
 - `make clean` to remove old stuff lying around
 - `make debug` to build with debugging flags. This will generate a lot of extra files. Browse them.
-- `make run` to execute
+- `make run` to execute the debuggin enables executable or simply run `./parser`
 
 ## Challenges
 
