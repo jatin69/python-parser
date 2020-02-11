@@ -2,7 +2,7 @@
 
 A simple parser for python made using lex yacc / [GNU's flex bison](https://www.gnu.org/software/bison/manual/).
 
-It currently supports only selected python expressions as stated below.
+The stable version currently supports only certain python expressions as stated below. The code for the same is in `python-expression-parser` directory. A similarly made python for-loop parser can also be found in the `python-loop-parser` directory.
 
 ## Screenshots
 
@@ -15,17 +15,17 @@ It currently supports only selected python expressions as stated below.
 - The following packages are required
   + gnu's lex yacc `sudo apt-get install bison flex`
   + make utility `sudo apt-get install build-essential`
-- go to source folder `cd src`
+- go to source folder `cd python-expression-parser`
 - `make clean` to remove old stuff lying around
 - `make` to build : this will generate the usual files
-- `make run` to execute or simply run `./parser`
+- `make run` to execute or simply run `./expression-parser`
 
 ## How to debug
 
-- go to source folder `cd src`
+- go to source folder `cd python-expression-parser`
 - `make clean` to remove old stuff lying around
-- `make debug` to build with debugging flags. This will generate a lot of extra files. Browse them.
-- `make run` to execute the debuggin enables executable or simply run `./parser`
+- `make debug` to build with debugging flags. This will generate a lot of extra files. Browse them to know more about them.
+- run `./debug-expression-parser`
 
 ## Challenges
 
